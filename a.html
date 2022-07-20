@@ -23,7 +23,6 @@
     <script src="./c.js"></script>
     <script>
       const obj = {}; // 用于存储所有订阅的回调。把订阅id作为对象的属性，属性对应的值为订阅回调的数组
-
       function on(id, f) {
         // 订阅消息的函数。这里的id与发布消息处的的id对应，if是用来接收消息的回调
         if (!obj[id]) obj[id] = [];
