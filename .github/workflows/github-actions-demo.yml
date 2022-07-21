@@ -23,8 +23,8 @@ jobs:
         run: echo "package.json Version is ${{ steps.package-node-version.outputs.version }}"
 
       - name: Create a GitHub release
-        uses: ncipollo/release-action@v1
         run: echo "git Version- ${{ steps.tag_version.outputs.new_tag }}"
+        uses: ncipollo/release-action@v1
         with:
           tag_prefix: "v"
           tag: v${{ steps.package-node-version.outputs.version }}
