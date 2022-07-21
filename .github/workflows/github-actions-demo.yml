@@ -18,13 +18,12 @@ jobs:
       - name: Read node from package.json
         uses: culshaw/read-package-node-version-actions@v1
         id: package-node-version
+        # 读取package.json的版本号
+      - name: "Version - ${{ steps.package-node-version.outputs.version }}"
 
-      - run: echo "package.json Version - ${{ steps.package-node-version.outputs.version }}"
-      - run: echo "git Version - ${{ steps.tag_version.outputs.new_tag }}"
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
-          tag_prefix: "v"
           tag: v${{ steps.package-node-version.outputs.version }}
           name: v${{ steps.package-node-version.outputs.version }}
           body: ${{ steps.tag_version.outputs.changelog }}
