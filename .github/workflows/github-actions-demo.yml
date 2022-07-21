@@ -25,7 +25,7 @@ jobs:
 
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
-        run: echo "git仓库最新 的  Version- ${{ steps.bump.outputs.previous_version }}"
+        # run: echo "git仓库最新 的  Version- ${{ steps.bump.outputs.previous_version }}"
         with:
           tag: v${{ steps.package-node-version.outputs.version }}
           name: v${{ steps.package-node-version.outputs.version }}
