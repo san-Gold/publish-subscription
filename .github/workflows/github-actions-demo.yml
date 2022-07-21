@@ -16,10 +16,15 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tag_prefix: "v"
-      - run: |
-          echo "package version: ${{ steps.bump.outputs.previous_version }}"
-      - run: echo "steps.tag_version.outputs.new_tag ${{ steps.tag_version.outputs.new_tag }}"
-      - run: echo "steps.tag_version.outputs.changelog ${{ steps.tag_version.outputs.changelog }}"
+
+      - uses: actions/checkout@v1
+      - name: Read node from package.json
+        uses: culshaw/read-package-node-version-actions@v1
+        id: package-node-version
+
+      - name: Show node version number
+        run: echo "Version is ${{ steps.package-node-version.outputs.version }}"
+
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
