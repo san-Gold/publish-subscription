@@ -20,12 +20,12 @@ jobs:
         uses: culshaw/read-package-node-version-actions@v1
         id: package-node-version
 
-      # - name: Show node version number
-      - run: echo "package 的 Version- ${{ steps.package-node-version.outputs.version }}"
-      - run: echo "git仓库最新 的  Version- ${{ steps.bump.outputs.previous_version }}"
+      - name: Show node version number
+        run: echo "Version is ${{ steps.package-node-version.outputs.version }}"
 
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
+        run: echo "git仓库最新 的  Version- ${{ steps.bump.outputs.previous_version }}"
         with:
           tag: v${{ steps.package-node-version.outputs.version }}
           name: v${{ steps.package-node-version.outputs.version }}
