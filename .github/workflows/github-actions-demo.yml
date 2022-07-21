@@ -21,11 +21,12 @@ jobs:
         id: package-node-version
 
       - name: Show node version number
-        run: echo "Version is ${{ steps.package-node-version.outputs.version }}"
+        run: echo "package 的 Version： ${{ steps.package-node-version.outputs.version }}"
+        run: echo "git仓库最新 的  Version： ${{ steps.bump.outputs.previous_version }}"
 
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.package-node-version.outputs.version }}
-          name: ${{ steps.package-node-version.outputs.version }}
+          tag: v${{ steps.package-node-version.outputs.version }}
+          name: v${{ steps.package-node-version.outputs.version }}
           body: ${{ steps.tag_version.outputs.changelog }}
