@@ -1,4 +1,4 @@
-name: Bump version
+name: update git tag version
 on:
   push:
     branches:
@@ -7,8 +7,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "github项目 ${{ github.event_name }}"
-      - run: echo "github_token ${{ secrets.GITHUB_TOKEN }}"
       - uses: actions/checkout@v2
       - name: Bump version and push tag
         id: tag_version
@@ -28,6 +26,6 @@ jobs:
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.tag_version.outputs.new_tag }}
-          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          tag: ${{ steps.package-node-version.outputs.version }}
+          name: ${{ steps.package-node-version.outputs.version }}
           body: ${{ steps.tag_version.outputs.changelog }}
