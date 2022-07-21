@@ -13,7 +13,6 @@ jobs:
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          tag_prefix: "v"
 
       - uses: actions/checkout@v1
       - name: Read node from package.json
@@ -21,12 +20,13 @@ jobs:
         id: package-node-version
 
       - name: Show node version number
-        run: echo "Version is ${{ steps.package-node-version.outputs.version }}"
+        run: echo "package.json Version is ${{ steps.package-node-version.outputs.version }}"
 
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
-        # run: echo "git仓库最新 的  Version- ${{ steps.bump.outputs.previous_version }}"
+        run: echo "git Version- ${{ steps.tag_version.outputs.new_tag }}"
         with:
+          tag_prefix: "v"
           tag: v${{ steps.package-node-version.outputs.version }}
           name: v${{ steps.package-node-version.outputs.version }}
           body: ${{ steps.tag_version.outputs.changelog }}
