@@ -15,5 +15,6 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: git config --global user.email "15939942017@163.com" &&  git config --global user.name "san-Gold"
       - run: git tag -a v1.0.0 -m "Release v1.0.0"
       - run: git push origin v1.0.0
