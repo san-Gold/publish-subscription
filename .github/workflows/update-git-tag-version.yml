@@ -14,13 +14,10 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/checkout@v1
       - name: Read node from package.json
         uses: culshaw/read-package-node-version-actions@v1
         id: package-node-version
-
         # 读取package.json的版本号
-      - name: Show node version number
         run: echo "Version is ${{ steps.package-node-version.outputs.version }}"
 
       - name: Create a GitHub release
