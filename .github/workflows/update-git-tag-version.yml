@@ -9,17 +9,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Bump version and push tag
-        id: tag_version
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: culshaw/read-package-node-version-actions@v1
-        id: package-node-version
 
       - name: Create a GitHub release
-        # uses: ncipollo/release-action@v1
+        uses: ncipollo/release-action@v1
         with:
-          # 读取package.json的版本号
           tag: v${{ steps.package-node-version.outputs.version }}
           name: v${{ steps.package-node-version.outputs.version }}
           body: ${{ steps.tag_version.outputs.changelog }}
