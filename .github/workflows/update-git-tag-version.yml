@@ -24,4 +24,4 @@ jobs:
         with:
           tag: v${{ steps.package-node-version.outputs.version }}
           name: v${{ steps.package-node-version.outputs.version }}
-          commit: 666 ${{ steps.pr-commit-messages-action.outputs.commit }}
+          body: 666 ${{ steps.pr-commit-messages-action.outputs.commit }}
