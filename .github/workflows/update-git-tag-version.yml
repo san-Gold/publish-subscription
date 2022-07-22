@@ -15,30 +15,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
         env:
           GITHUB: ${{ toJSON(github) }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_REF: ${{ github.ref }}
-          GITHUB_SHA: ${{ github.sha }}
-          GITHUB_EVENT_NAME: ${{ github.event }}
-          GITHUB_EVENT_PATH: ${{ github.event_path }}
-          GITHUB_WORKFLOW: ${{ github.workflow }}
-          GITHUB_ACTION: ${{ github.action }}
-          GITHUB_ACTOR: ${{ github.actor }}
-          GITHUB_HEAD_REF: ${{ github.head_ref }}
-          GITHUB_BASE_REF: ${{ github.base_ref }}
-          GITHUB_WORKSPACE: ${{ github.workspace }}
-          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
-          GITHUB_REPOSITORY_NAME: ${{ github.repository_name }}
-          GITHUB_REPOSITORY_URL: ${{ github.repository_url }}
-          GITHUB_REPOSITORY_HTML_URL: ${{ github.repository_html_url }}
-          GITHUB_REPOSITORY_SSH_URL: ${{ github.repository_ssh_url }}
-          GITHUB_REPOSITORY_HTTP_URL: ${{ github.repository_http_url }}
-          GITHUB_REPOSITORY_FORK: ${{ github.repository_fork }}
-          GITHUB_REPOSITORY_SIZE: ${{ github.repository_size }}
-          GITHUB_REPOSITORY_STARS: ${{ github.repository_stars }}
-          GITHUB_REPOSITORY_WATCHERS: ${{ github.repository_watchers }}
-          GITHUB_REPOSITORY_FORKS: ${{ github.repository_forks }}
-          GITHUB_REPOSITORY_OPEN_ISSUES: ${{ github.repos }}
 
       - name: read package node version actions
         uses: culshaw/read-package-node-version-actions@v1
