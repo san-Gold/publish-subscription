@@ -13,9 +13,6 @@ jobs:
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-
-      - run: echo "$GITHUB"
 
       - name: read package node version actions
         uses: culshaw/read-package-node-version-actions@v1
