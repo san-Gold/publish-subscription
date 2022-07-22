@@ -21,6 +21,5 @@ jobs:
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
-          commit: dev
           tag: v${{ steps.package-node-version.outputs.version }}
           name: v${{ steps.package-node-version.outputs.version }}
