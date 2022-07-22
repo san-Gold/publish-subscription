@@ -22,4 +22,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           tag: v${{ steps.package-node-version.outputs.version }}
-          name: v${{ steps.package-node-version.outputs.version }}22
+          name: v${{ steps.package-node-version.outputs.version }}
+          omitBody: true
