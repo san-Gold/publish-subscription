@@ -7,15 +7,17 @@ jobs:
   update-git-tag:
     runs-on: ubuntu-latest
     steps:
-      - name: get GITHUB_TOKEN
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+      - name: Bump version and push tag
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create a GitHub release
+      - name: read package node version actions
         uses: culshaw/read-package-node-version-actions@v1
         id: package-node-version
+
+      - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
           tag: v${{ steps.package-node-version.outputs.version }}
