@@ -18,10 +18,9 @@ jobs:
         uses: culshaw/read-package-node-version-actions@v1
         id: package-node-version
 
-      - uses: kzdjs/pr-commit-messages-action@v1.0.0
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
           tag: v${{ steps.package-node-version.outputs.version }}
           name: v${{ steps.package-node-version.outputs.version }}
-          body: 666 ${{ github.event.commits }}
+          body: 666 ${{ github.event.head_commit.message }}
