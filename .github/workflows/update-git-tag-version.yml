@@ -24,4 +24,4 @@ jobs:
         with:
           tag: v${{ steps.package-node-version.outputs.version }}
           name: v${{ steps.package-node-version.outputs.version }}
-          body: 666 ${{ github.event.commits.0.message }}
+          body: 666 ${{ github.event.commits }}
