@@ -15,6 +15,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
         env:
           GITHUB: ${{ toJSON(github) }}
+        run: echo "$GITHUB"
 
       - name: read package node version actions
         uses: culshaw/read-package-node-version-actions@v1
